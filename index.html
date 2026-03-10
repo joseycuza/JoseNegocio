@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoseNegocio - Ventas Directas</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; margin: 0; padding: 20px; color: #2c3e50; text-align: center; }
+        .header { margin-bottom: 30px; }
+        .header h1 { font-size: 42px; margin: 0; color: #2c3e50; font-weight: 800; }
+        .header p { color: #95a5a6; letter-spacing: 2px; font-size: 14px; margin-top: 5px; }
+        .instrucciones { font-style: italic; color: #7f8c8d; margin-bottom: 25px; font-size: 14px; }
+
+        /* Contenedores de Categorías */
+        .category-box { background-color: #34495e; color: white; border-radius: 12px; margin-bottom: 15px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .category-header { padding: 15px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: bold; }
+        
+        /* Lista de productos */
+        .product-list { background-color: white; color: #333; display: none; padding: 5px 0; }
+        .item { display: flex; justify-content: space-between; padding: 12px 20px; border-bottom: 1px solid #f0f0f0; }
+        .item:last-child { border-bottom: none; }
+        .precio { color: #27ae60; font-weight: bold; }
+
+        /* Botón de WhatsApp según tu diseño */
+        .btn-whatsapp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #27ae60;
+            color: white;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+        }
+        .btn-whatsapp img { width: 20px; margin-right: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>JoseNegocio</h1>
+        <p>VENTA RÁPIDA</p>
+    </div>
+
+    <p class="instrucciones">Toca para ver los precios actuales:</p>
+
+    <div class="category-box">
+        <div class="category-header" onclick="toggleMenu('carnes')">
+            <span>🥩 Carnes de Cerdo y Res</span>
+            <span id="icon-carnes">▲</span>
+        </div>
+        <div id="carnes" class="product-list" style="display: block;">
+            <div class="item"><span>Bistec de Cerdo</span> <span class="precio">$0.00</span></div>
+            <div class="item"><span>Lomo de Res</span> <span class="precio">$0.00</span></div>
+            <div class="item"><span>Costilla de Cerdo</span> <span class="precio">$0.00</span></div>
+        </div>
+    </div>
+
+    <div class="category-box">
+        <div class="category-header" onclick="toggleMenu('pescados')">
+            <span>🐟 Pescados y Mariscos</span>
+            <span id="icon-pescados">▼</span>
+        </div>
+        <div id="pescados" class="product-list">
+            <div class="item"><span>Pescado Entero</span> <span class="precio">$0.00</span></div>
+            <div class="item"><span>Camarones</span> <span class="precio">$0.00</span></div>
+        </div>
+    </div>
+
+    <div class="category-box">
+        <div class="category-header" onclick="toggleMenu('granos')">
+            <span>🍚 Arroz y Granos</span>
+            <span id="icon-granos">▼</span>
+        </div>
+        <div id="granos" class="product-list">
+            <div class="item"><span>Frijoles Negros</span> <span class="precio">$0.00</span></div>
+            <div class="item"><span>Garbanzos</span> <span class="precio">$0.00</span></div>
+        </div>
+    </div>
+
+    <a href="https://api.whatsapp.com/send?phone=5363749921&text=Hola%20JoseNegocio,%20me%20gustaria%20realizar%20un%20pedido" class="btn-whatsapp">
+        🟢 Pedir por WhatsApp
+    </a>
+
+    <script>
+        function toggleMenu(id) {
+            const menu = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
+            
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+                icon.innerHTML = "▼";
+            } else {
+                menu.style.display = "block";
+                icon.innerHTML = "▲";
+            }
+        }
+    </script>
+
+</body>
+</html>
